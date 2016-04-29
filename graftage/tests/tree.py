@@ -17,18 +17,29 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Graftage. If not, see <http://www.gnu.org/licenses/>.
 
-from setuptools import setup, find_packages
+import unittest
 
-setup(
-    name="graftage",
-    version="0.0.1.dev1",
-    author='Adam Victor Brandizzi',
-    author_email='adam@brandizzi.com.br',
-    description='graftage',
-    license='LGPLv3',
-    url='http://bitbucket.com/brandizzi/graftage',
-    packages=find_packages(),
-    test_suite='graftage.tests',
-    test_loader='unittest:TestLoader',
-    tests_require=['inelegant']
-)
+import textwrap
+
+from graftage.tree import Tree
+
+class TestTree(unittest.TestCase):
+
+    def test_find_by_css_id(self):
+        """
+        A finder should find elements by CSS id.
+        """
+        html = textwrap.dedent(
+            """\
+            <html>
+                <body>
+                    <div id="div1">test 1</div>
+                    <div id="div2">test 2</div>
+                </body>
+            </html>"""
+        )
+
+        tree = Tree(html)
+        element = tree.find(cssId='div1')
+
+        self.assertEquals('test 1', element.get_text())

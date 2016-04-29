@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 #
 # Copyright 2016 Adam Victor Brandizzi
 #
@@ -17,18 +17,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Graftage. If not, see <http://www.gnu.org/licenses/>.
 
-from setuptools import setup, find_packages
 
-setup(
-    name="graftage",
-    version="0.0.1.dev1",
-    author='Adam Victor Brandizzi',
-    author_email='adam@brandizzi.com.br',
-    description='graftage',
-    license='LGPLv3',
-    url='http://bitbucket.com/brandizzi/graftage',
-    packages=find_packages(),
-    test_suite='graftage.tests',
-    test_loader='unittest:TestLoader',
-    tests_require=['inelegant']
-)
+class Tree(object):
+    pass

@@ -17,3 +17,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with Graftage. If not, see <http://www.gnu.org/licenses/>.
 
+from inelegant.finder import TestFinder
+
+load_tests = TestFinder(
+    'graftage.tests.tree'
+).load_tests
